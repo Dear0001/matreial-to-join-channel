@@ -8,7 +8,8 @@ export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/crypto-config/peerOrganizations/org1.e
 export CORE_PEER_MSPCONFIGPATH=${PWD}/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
 export CORE_PEER_ADDRESS=localhost:7051
 
-peer channel update -o localhost:7050 \
+peer channel create -o localhost:7050 \
                     --ordererTLSHostnameOverride orderer.example.com \
-                    -c mychannel -f ./channel-artifacts/Org1MSPanchors.tx \
+                    -c mychannel -f ./artifact/mychannel.tx \
+                    --outputBlock ./artifact/mychannel.block \
                     --tls --cafile ${PWD}/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem

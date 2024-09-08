@@ -23,6 +23,11 @@ export CORE_PEER_TLS_KEY_FILE=${PWD}/crypto-config/peerOrganizations/org2.exampl
 export CORE_PEER_TLS_CERT_FILE=${PWD}/crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/server.crt
 export CORE_PEER_MSPCONFIGPATH=${PWD}/crypto-config/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
 
+# Set gossip-related environment variables
+export CORE_PEER_GOSSIP_PULLINTERVAL=2s
+export CORE_PEER_GOSSIP_RECONNECTINTERVAL=15s
+export CORE_PEER_GOSSIP_RECVBUFFSIZE=40
+export CORE_PEER_GOSSIP_SENDBUFFSIZE=400
 
 # launch the peer in background
 peer node start

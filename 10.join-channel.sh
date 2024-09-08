@@ -46,6 +46,12 @@ export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/crypto-config/peerOrganizations/org1.e
 export CORE_PEER_MSPCONFIGPATH=${PWD}/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
 export CORE_PEER_ADDRESS=localhost:7051
 
-peer channel join -b ./channel-artifacts/mychannel.block
+# Set gossip-related environment variables
+export CORE_PEER_GOSSIP_PULLINTERVAL=2s
+export CORE_PEER_GOSSIP_RECONNECTINTERVAL=15s
+export CORE_PEER_GOSSIP_RECVBUFFSIZE=40
+export CORE_PEER_GOSSIP_SENDBUFFSIZE=400
+
+peer channel join -b ./artifact/mychannel.block
 
 peer channel list
