@@ -8,8 +8,12 @@ export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/crypto-config/peerOrganizations/org1.e
 export CORE_PEER_MSPCONFIGPATH=${PWD}/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
 export CORE_PEER_ADDRESS=localhost:7051
 
-peer channel create -o localhost:7050 \
-                    --ordererTLSHostnameOverride orderer.example.com \
-                    -c mychannel -f ./artifact/mychannel.tx \
-                    --outputBlock ./artifact/mychannel.block \
-                    --tls --cafile ${PWD}/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+# Set gossip-related environment variables
+export CORE_PEER_GOSSIP_PULLINTERVAL=2s
+export CORE_PEER_GOSSIP_RECONNECTINTERVAL=15s
+export CORE_PEER_GOSSIP_RECVBUFFSIZE=40
+export CORE_PEER_GOSSIP_SENDBUFFSIZE=400
+
+peer channel join -b ./artifact/mychannel.block
+
+peer channel list

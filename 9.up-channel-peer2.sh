@@ -1,5 +1,4 @@
 export FABRIC_CFG_PATH=${PWD}/config
-
 export ORDERER_GENERAL_LOGLEVEL=DEBUG
 
 #variable for setting peer addresses
@@ -13,7 +12,6 @@ export CORE_OPERATIONS_LISTENADDRESS=localhost:8444
 
 export CORE_PEER_CHAINCODEADDRESS=localhost:8052  
 export CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:8052
-
 
 export CORE_PEER_FILESYSTEMPATH=${PWD}/ledger/org2
 

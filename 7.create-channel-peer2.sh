@@ -14,6 +14,3 @@ peer channel fetch 0 ./artifact/mychannel.block -o localhost:7050 \
                     --ordererTLSHostnameOverride orderer.example.com \
                     -c mychannel \
                     --tls --cafile ${PWD}/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
-
-# Join Org2's peer to the channel
-peer channel join -b ./artifact/mychannel.block
