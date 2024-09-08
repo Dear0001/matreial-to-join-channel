@@ -1,4 +1,5 @@
-You need to installation the binarry for HLF and required three file which extension .yaml such as:
+You need to install the binaries for Hyperledger Fabric (HLF). Please search for the official Hyperledger Fabric website and locate the "Get Started" section. There, you will find the curl command to install the binaries.
+Additionally, ensure that you have the following three required files with the .yaml extension:
 - configtx.ymal
 - core.yaml
 - orderer.yaml
